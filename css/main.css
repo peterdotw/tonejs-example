@@ -1,0 +1,65 @@
+body,
+button {
+  font-family: "Fira Code", monospace;
+}
+
+.container__title {
+  text-align: center;
+  padding: 20px;
+}
+
+.container__text {
+  text-align: center;
+  padding: 20px;
+}
+
+.keyboard {
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard__key {
+  height: 300px;
+  width: 150px;
+  background: transparent;
+  border: none;
+  border: solid 1px black;
+  border-right: none;
+  transition: background-color 0.2s ease-out;
+  user-select: none;
+  font-size: 20px;
+}
+
+.keyboard__key:focus {
+  outline: 0;
+  background-color: turquoise;
+}
+
+.keyboard__key--Cs {
+  background: black;
+  color: white;
+}
+
+.keyboard__key--Ds {
+  background: black;
+  color: white;
+}
+
+.keyboard__key--Fs {
+  background: black;
+  color: white;
+}
+
+.keyboard__key--Gs {
+  background: black;
+  color: white;
+}
+
+.keyboard__key--As {
+  background: black;
+  color: white;
+}
+
+.keyboard__key:last-of-type {
+  border-right: solid 1px black;
+}
