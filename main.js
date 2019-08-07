@@ -26,6 +26,14 @@ const pianoMouse = (button, note) => {
   document.querySelector(button).addEventListener("mouseup", () => {
     synth.triggerRelease();
   });
+
+  document.querySelector(button).addEventListener("touchstart", () => {
+    synth.triggerAttack(note);
+  });
+
+  document.querySelector(button).addEventListener("touchend", () => {
+    synth.triggerRelease();
+  });
 };
 
 pianoKeyboard("a", "C3");
