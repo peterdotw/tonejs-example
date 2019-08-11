@@ -1,7 +1,17 @@
-const synth = new Tone.AMSynth().toMaster();
+const synth = new Tone.Synth({
+  oscillator: {
+    type: "square"
+  },
+  envelope: {
+    attack: 1.0,
+    decay: 1.0,
+    sustain: 0.5,
+    release: 1.5
+  }
+}).toMaster();
 
 const pianoKeyboard = (key, note) => {
-  document.addEventListener("keydown", event => {
+  $("body").on("keydown", event => {
     const keyName = event.key;
 
     if (keyName === key) {
@@ -9,30 +19,65 @@ const pianoKeyboard = (key, note) => {
     }
   });
 
-  document.addEventListener("keyup", event => {
+  $("body").on("keyup", event => {
     const keyName = event.key;
 
     if (keyName === key) {
       synth.triggerRelease();
     }
+
+    if (keyName === "w") {
+    }
   });
 };
 
 const pianoMouse = (button, note) => {
-  document.querySelector(button).addEventListener("mousedown", () => {
+  $(button).on("mousedown", () => {
     synth.triggerAttack(note);
   });
 
-  document.querySelector(button).addEventListener("mouseup", () => {
+  $(button).on("mouseup", () => {
     synth.triggerRelease();
   });
 
-  document.querySelector(button).addEventListener("touchstart", () => {
+  $(button).on("touchstart", () => {
     synth.triggerAttack(note);
   });
 
-  document.querySelector(button).addEventListener("touchend", () => {
+  $(button).on("touchend", () => {
     synth.triggerRelease();
+  });
+};
+
+const envelopeHandler = () => {
+  $(".envelope__slider--attack").on("change", () => {
+    let value = Number($(".envelope__slider--attack").val());
+    synth.envelope.attack = value;
+    $(".envelope__value--attack").html(value);
+  });
+
+  $(".envelope__slider--decay").on("change", () => {
+    let value = Number($(".envelope__slider--decay").val());
+    synth.envelope.decay = value;
+    $(".envelope__value--decay").html(value);
+  });
+
+  $(".envelope__slider--sustain").on("change", () => {
+    let value = Number($(".envelope__slider--sustain").val());
+    synth.envelope.sustain = value;
+    $(".envelope__value--sustain").html(value);
+  });
+
+  $(".envelope__slider--release").on("change", () => {
+    let value = Number($(".envelope__slider--release").val());
+    synth.envelope.release = value;
+    $(".envelope__value--release").html(value);
+  });
+};
+
+const oscillatorHandler = () => {
+  $(".oscillator__select").change(() => {
+    synth.oscillator.type = $(".oscillator__select").val();
   });
 };
 
@@ -61,3 +106,6 @@ pianoMouse(".keyboard__key--Gs", "G#3");
 pianoMouse(".keyboard__key--A", "A3");
 pianoMouse(".keyboard__key--As", "A#3");
 pianoMouse(".keyboard__key--B", "B3");
+
+envelopeHandler();
+oscillatorHandler();

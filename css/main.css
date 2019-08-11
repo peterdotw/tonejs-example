@@ -3,6 +3,13 @@ button {
   font-family: "Fira Code", monospace;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .container__title {
   text-align: center;
   padding: 20px;
@@ -19,8 +26,8 @@ button {
 }
 
 .keyboard__key {
-  height: 300px;
-  width: 150px;
+  height: 30vh;
+  width: 8vw;
   background: transparent;
   border: none;
   border: solid 1px black;
@@ -62,4 +69,20 @@ button {
 
 .keyboard__key:last-of-type {
   border-right: solid 1px black;
+}
+
+.oscillator {
+  margin-top: 40px;
+}
+
+.envelope {
+  margin-top: 20px;
+}
+
+.envelope__slider {
+  width: 20vw;
+}
+
+.envelope__text {
+  text-align: center;
 }
