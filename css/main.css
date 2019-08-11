@@ -79,6 +79,18 @@ button {
   margin-top: 20px;
 }
 
+.envelope__container {
+  display: flex;
+}
+
+.envelope__container * {
+  margin-right: 12px;
+}
+
+.envelope__value {
+  margin-right: 0;
+}
+
 .envelope__slider {
   width: 20vw;
 }
