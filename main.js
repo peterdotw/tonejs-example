@@ -11,7 +11,7 @@ const synth = new Tone.Synth({
 }).toMaster();
 
 const pianoKeyboard = (key, note) => {
-  $("body").on("keydown", event => {
+  document.querySelector("body").addEventListener("keydown", event => {
     const keyName = event.key;
 
     if (keyName === key) {
@@ -19,7 +19,7 @@ const pianoKeyboard = (key, note) => {
     }
   });
 
-  $("body").on("keyup", event => {
+  document.querySelector("body").addEventListener("keyup", event => {
     const keyName = event.key;
 
     if (keyName === key) {
@@ -32,53 +32,73 @@ const pianoKeyboard = (key, note) => {
 };
 
 const pianoMouse = (button, note) => {
-  $(button).on("mousedown", () => {
+  document.querySelector(button).addEventListener("mousedown", () => {
     synth.triggerAttack(note);
   });
 
-  $(button).on("mouseup", () => {
+  document.querySelector(button).addEventListener("mouseup", () => {
     synth.triggerRelease();
   });
 
-  $(button).on("touchstart", () => {
+  document.querySelector(button).addEventListener("touchstart", () => {
     synth.triggerAttack(note);
   });
 
-  $(button).on("touchend", () => {
+  document.querySelector(button).addEventListener("touchend", () => {
     synth.triggerRelease();
   });
 };
 
 const envelopeHandler = () => {
-  $(".envelope__slider--attack").on("change", () => {
-    let value = Number($(".envelope__slider--attack").val());
-    synth.envelope.attack = value;
-    $(".envelope__value--attack").html(value);
-  });
+  document
+    .querySelector(".envelope__slider--attack")
+    .addEventListener("change", () => {
+      let value = Number(
+        document.querySelector(".envelope__slider--attack").value
+      );
+      synth.envelope.attack = value;
+      document.querySelector(".envelope__value--attack").innerHTML = value;
+    });
 
-  $(".envelope__slider--decay").on("change", () => {
-    let value = Number($(".envelope__slider--decay").val());
-    synth.envelope.decay = value;
-    $(".envelope__value--decay").html(value);
-  });
+  document
+    .querySelector(".envelope__slider--decay")
+    .addEventListener("change", () => {
+      let value = Number(
+        document.querySelector(".envelope__slider--decay").value
+      );
+      synth.envelope.decay = value;
+      document.querySelector(".envelope__value--decay").innerHTML = value;
+    });
 
-  $(".envelope__slider--sustain").on("change", () => {
-    let value = Number($(".envelope__slider--sustain").val());
-    synth.envelope.sustain = value;
-    $(".envelope__value--sustain").html(value);
-  });
+  document
+    .querySelector(".envelope__slider--sustain")
+    .addEventListener("change", () => {
+      let value = Number(
+        document.querySelector(".envelope__slider--sustain").value
+      );
+      synth.envelope.sustain = value;
+      document.querySelector(".envelope__value--sustain").innerHTML = value;
+    });
 
-  $(".envelope__slider--release").on("change", () => {
-    let value = Number($(".envelope__slider--release").val());
-    synth.envelope.release = value;
-    $(".envelope__value--release").html(value);
-  });
+  document
+    .querySelector(".envelope__slider--release")
+    .addEventListener("change", () => {
+      let value = Number(
+        document.querySelector(".envelope__slider--release").value
+      );
+      synth.envelope.release = value;
+      document.querySelector(".envelope__value--release").innerHTML = value;
+    });
 };
 
 const oscillatorHandler = () => {
-  $(".oscillator__select").change(() => {
-    synth.oscillator.type = $(".oscillator__select").val();
-  });
+  document
+    .querySelector(".oscillator__select")
+    .addEventListener("change", () => {
+      synth.oscillator.type = document.querySelector(
+        ".oscillator__select"
+      ).value;
+    });
 };
 
 pianoKeyboard("a", "C3");
