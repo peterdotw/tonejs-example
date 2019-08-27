@@ -72,10 +72,6 @@ select {
   border-right: solid 1px black;
 }
 
-.oscillator {
-  margin-top: 40px;
-}
-
 .envelope {
   margin-top: 20px;
   display: flex;
@@ -107,4 +103,8 @@ select {
 
 .envelope__slider-input {
   width: 20vw;
+}
+
+.oscillator {
+  margin-top: 40px;
 }
