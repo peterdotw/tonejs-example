@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <section class="container">
-      <h1 class="container__title">Tone.js example</h1>
-      <p class="container__text">Use mouse or keyboard to play</p>
-      <div class="keyboard">
+    <header class="header">
+      <h1 class="header__title">Tone.js example</h1>
+      <p class="header__text">Use mouse or keyboard to play</p>
+    </header>
+    <main class="container">
+      <section class="keyboard">
         <button class="keyboard__key keyboard__key--C">A</button>
         <button class="keyboard__key keyboard__key--Cs">W</button>
         <button class="keyboard__key keyboard__key--D">S</button>
@@ -28,75 +30,73 @@
         <button class="keyboard__key keyboard__key--A">H</button>
         <button class="keyboard__key keyboard__key--As">U</button>
         <button class="keyboard__key keyboard__key--B">J</button>
-      </div>
-      <div class="envelope">
+      </section>
+      <section class="envelope">
         <p class="envelope__text">Envelope settings:</p>
-        <div class="envelope__container">
-          <input
-            type="range"
-            min="0"
-            max="10"
-            value="1.0"
-            step="0.05"
-            class="envelope__slider envelope__slider--attack"
-            name="attack"
-          />
-          <label for="attack">Attack</label>
-          <span class="envelope__value envelope__value--attack">1</span
-          ><span>s</span>
+        <div class="envelope__sliders-container">
+          <div class="envelope__slider">
+            <input
+              type="range"
+              min="0"
+              max="10"
+              value="1.0"
+              step="0.1"
+              class="envelope__slider-input envelope__slider-input--attack"
+              name="attack"
+            />
+            <label for="attack">Attack</label>
+            <span class="envelope__value envelope__value--attack">1</span>
+          </div>
+          <div class="envelope__slider">
+            <input
+              type="range"
+              min="0"
+              max="2"
+              value="1.0"
+              step="0.1"
+              class="envelope__slider-input envelope__slider-input--decay"
+              name="decay"
+            />
+            <label for="decay">Decay</label>
+            <span class="envelope__value envelope__value--decay">1</span>
+          </div>
+          <div class="envelope__slider">
+            <input
+              type="range"
+              min="0"
+              max="1"
+              value="0.5"
+              step="0.1"
+              class="envelope__slider-input envelope__slider-input--sustain"
+              name="sustain"
+            />
+            <label for="sustain">Sustain</label>
+            <span class="envelope__value envelope__value--sustain">0.5</span>
+          </div>
+          <div class="envelope__slider">
+            <input
+              type="range"
+              min="0.1"
+              max="6"
+              value="1.5"
+              step="0.1"
+              class="envelope__slider-input envelope__slider-input--release"
+              name="release"
+            />
+            <label for="release">Release</label>
+            <span class="envelope__value envelope__value--release">1.5</span>
+          </div>
         </div>
-        <div class="envelope__container">
-          <input
-            type="range"
-            min="0"
-            max="2"
-            value="1.0"
-            step="0.05"
-            class="envelope__slider envelope__slider--decay"
-            name="decay"
-          />
-          <label for="decay">Decay</label>
-          <span class="envelope__value envelope__value--decay">1</span
-          ><span>s</span>
-        </div>
-        <div class="envelope__container">
-          <input
-            type="range"
-            min="0"
-            max="1"
-            value="0.5"
-            step="0.05"
-            class="envelope__slider envelope__slider--sustain"
-            name="sustain"
-          />
-          <label for="sustain">Sustain</label>
-          <span class="envelope__value envelope__value--sustain">0.5</span
-          ><span>s</span>
-        </div>
-        <div class="envelope__container">
-          <input
-            type="range"
-            min="0.1"
-            max="6"
-            value="1.5"
-            step="0.05"
-            class="envelope__slider envelope__slider--release"
-            name="release"
-          />
-          <label for="release">Release</label>
-          <span class="envelope__value envelope__value--release">1.5</span
-          ><span>s</span>
-        </div>
-      </div>
-      <div class="oscillator">
+      </section>
+      <section class="oscillator">
         <label for="osc">Oscillator:</label>
         <select id="osc" class="oscillator__select">
           <option value="square">Square</option>
           <option value="sine">Sine</option>
           <option value="triangle">Triangle</option>
         </select>
-      </div>
-    </section>
+      </section>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script>
     <script src="./main.js"></script>
   </body>

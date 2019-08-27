@@ -51,40 +51,40 @@ const pianoMouse = (button, note) => {
 
 const envelopeHandler = () => {
   document
-    .querySelector(".envelope__slider--attack")
+    .querySelector(".envelope__slider-input--attack")
     .addEventListener("change", () => {
       let value = Number(
-        document.querySelector(".envelope__slider--attack").value
+        document.querySelector(".envelope__slider-input--attack").value
       );
       synth.envelope.attack = value;
       document.querySelector(".envelope__value--attack").innerHTML = value;
     });
 
   document
-    .querySelector(".envelope__slider--decay")
+    .querySelector(".envelope__slider-input--decay")
     .addEventListener("change", () => {
       let value = Number(
-        document.querySelector(".envelope__slider--decay").value
+        document.querySelector(".envelope__slider-input--decay").value
       );
       synth.envelope.decay = value;
       document.querySelector(".envelope__value--decay").innerHTML = value;
     });
 
   document
-    .querySelector(".envelope__slider--sustain")
+    .querySelector(".envelope__slider-input--sustain")
     .addEventListener("change", () => {
       let value = Number(
-        document.querySelector(".envelope__slider--sustain").value
+        document.querySelector(".envelope__slider-input--sustain").value
       );
       synth.envelope.sustain = value;
       document.querySelector(".envelope__value--sustain").innerHTML = value;
     });
 
   document
-    .querySelector(".envelope__slider--release")
+    .querySelector(".envelope__slider-input--release")
     .addEventListener("change", () => {
       let value = Number(
-        document.querySelector(".envelope__slider--release").value
+        document.querySelector(".envelope__slider-input--release").value
       );
       synth.envelope.release = value;
       document.querySelector(".envelope__value--release").innerHTML = value;
